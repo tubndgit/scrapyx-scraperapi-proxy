@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 import sys
-from distutils.core import setup
+import os
+try:
+    from setuptools import setup, find_packages
+except ImportError:
+    from distutils.core import setup, find_packages
 
 setup(name='scrapyx-scraperapi-proxy',
         version='0.1',
