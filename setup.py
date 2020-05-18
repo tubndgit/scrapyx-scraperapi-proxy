@@ -7,8 +7,7 @@ except ImportError:
     from distutils.core import setup, find_packages
 
 setup(name='scrapyx-scraperapi-proxy',
-        version='0.1.1',
-        packages=find_packages(),
+        version='0.1.1',        
         description='Scrapy scraperapi Proxy: scraperapi interfacing middleware for Scrapy',
         author='Henry B.',
         author_email='tubnd.younet@gmail.com',
@@ -19,4 +18,5 @@ setup(name='scrapyx-scraperapi-proxy',
             'scraperapi-sdk'
         ],
         license='MIT',
+        python_requires='>=3.6',
     )

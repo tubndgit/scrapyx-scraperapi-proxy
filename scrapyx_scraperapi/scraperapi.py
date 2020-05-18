@@ -1,10 +1,15 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Henry B. <tubnd.younet@gmail.com>'
 
+from scrapy.exceptions import NotConfigured
 try:
     from scraper_api import ScraperAPIClient
 except:
     pass
+
+import logging
+
+log = logging.getLogger('scrapyx.scraperapi')
 
 class ScraperApiProxyMiddleware(object):
     def __init__(self, settings):
@@ -24,5 +29,7 @@ class ScraperApiProxyMiddleware(object):
         return o
 
     def process_request(self, request, spider):
+        log.info("Process request...")        
         new_url = self.SCRAPERAPI_CLIENT.scrapyGet(url=request.url, render=True)
-        return request.replace(url=new_url)
+        log.info("New url: {}".format(new_url))
+        request.replace(url=new_url)
