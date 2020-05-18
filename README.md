@@ -5,6 +5,13 @@ Scraper API middleware for Scrapy (http://scrapy.org/)
 
 Processes Scrapy requests a man in the middle proxy service using https://www.scraperapi.com
 
+
+Required
+--------
+
+    python version >= 3.6
+
+
 Install
 --------
 
