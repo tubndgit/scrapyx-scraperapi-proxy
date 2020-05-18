@@ -30,6 +30,6 @@ class ScraperApiProxyMiddleware(object):
 
     def process_request(self, request, spider):
         log.info("Process request...")        
-        new_url = self.SCRAPERAPI_CLIENT.scrapyGet(url=request.url, render=True)
+        new_url = self.SCRAPERAPI_CLIENT.scrapyGet(url=request.url)
         log.info("New url: {}".format(new_url))
         request.replace(url=new_url)
