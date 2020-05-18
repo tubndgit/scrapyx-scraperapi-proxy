@@ -3,6 +3,7 @@
 Scraper API middleware for Scrapy (http://scrapy.org/)
 =======================================================
 
+Processes Scrapy requests a man in the middle proxy service using https://www.scraperapi.com
 
 Install
 --------
@@ -22,7 +23,7 @@ settings.py
     SCRAPERAPI_KEY='your API key'
 
     DOWNLOADER_MIDDLEWARES = {
-        'scrapy_scraperapi.ScraperApiProxy': 610,
+        'scrapyx_scraperapi.ScraperApiProxyMiddleware': 610,
     }
 
 
