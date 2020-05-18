@@ -8,6 +8,7 @@ except ImportError:
 
 setup(name='scrapyx-scraperapi-proxy',
         version='0.1.1',
+        packages=find_packages(),
         description='Scrapy scraperapi Proxy: scraperapi interfacing middleware for Scrapy',
         author='Henry B.',
         author_email='tubnd.younet@gmail.com',
@@ -17,4 +18,5 @@ setup(name='scrapyx-scraperapi-proxy',
         install_requires = [
             'scraperapi-sdk'
         ],
+        license='MIT',
     )
