@@ -8,6 +8,7 @@ setup(name='scrapyx-scraperapi-proxy',
         author='Henry B.',
         author_email='tubnd.younet@gmail.com',
         url='https://github.com/tubndgit/scrapyx-scraperapi-proxy',
+        download_url = 'https://github.com/tubndgit/scrapyx-scraperapi-proxy/archive/master.zip', 
         packages=['scrapyx_scraperapi'],
         install_requires = [
             'scraperapi-sdk'
