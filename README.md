@@ -19,6 +19,10 @@ Checkout the source and run
 
     python setup.py install
 
+Or
+
+    pip install scrapyx-scraperapi-proxy
+    
 
 settings.py
 -----------
