@@ -30,8 +30,17 @@ settings.py
     # Activate the middleware
     SCRAPERAPI_ENABLED = True
     
-    #The API key 
+    # The API key 
     SCRAPERAPI_KEY='your API key'
+
+    # JS Redering 
+    SCRAPERAPI_RENDER = False
+
+    # Premium account
+    SCRAPERAPI_PREMIUM = False
+
+    # Geographic Location
+    SCRAPERAPI_COUNTRY_CODE = '' # 'US', 'UK', ...
 
     DOWNLOADER_MIDDLEWARES = {
         'scrapyx_scraperapi.ScraperApiProxyMiddleware': 610,

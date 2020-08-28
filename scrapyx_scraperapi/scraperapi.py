@@ -17,6 +17,10 @@ class ScraperApiProxyMiddleware(object):
             raise NotConfigured
         
         self.SCRAPERAPI_KEY = settings.get('SCRAPERAPI_KEY', '')
+        self.SCRAPERAPI_RENDER = settings.get('SCRAPERAPI_RENDER', False)
+        self.SCRAPERAPI_PREMIUM = settings.get('SCRAPERAPI_PREMIUM', False)
+        self.SCRAPERAPI_COUNTRY_CODE = settings.get('SCRAPERAPI_COUNTRY_CODE', '')
+
         self.SCRAPERAPI_CLIENT = None   
         try: 
             self.SCRAPERAPI_CLIENT = ScraperAPIClient(self.SCRAPERAPI_KEY)         
@@ -30,6 +34,10 @@ class ScraperApiProxyMiddleware(object):
 
     def process_request(self, request, spider):
         log.info("Process request...")        
-        new_url = self.SCRAPERAPI_CLIENT.scrapyGet(url=request.url)
+        new_url = self.SCRAPERAPI_CLIENT.scrapyGet(url=request.url, 
+            render=self.SCRAPERAPI_RENDER, 
+            country_code=self.SCRAPERAPI_COUNTRY_CODE, 
+            premium=self.SCRAPERAPI_PREMIUM)
+        
         log.info("New url: {}".format(new_url))
         request.replace(url=new_url)
