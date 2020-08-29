@@ -33,11 +33,13 @@ class ScraperApiProxyMiddleware(object):
         return o
 
     def process_request(self, request, spider):
-        log.info("Process request...")        
-        new_url = self.SCRAPERAPI_CLIENT.scrapyGet(url=request.url, 
-            render=self.SCRAPERAPI_RENDER, 
-            country_code=self.SCRAPERAPI_COUNTRY_CODE, 
-            premium=self.SCRAPERAPI_PREMIUM)
-        
-        log.info("New url: {}".format(new_url))
-        request.replace(url=new_url)
+        if 'api.scraperapi.com' not in request.url:
+            log.info("Process request...")        
+            new_url = self.SCRAPERAPI_CLIENT.scrapyGet(url=request.url, 
+                render=self.SCRAPERAPI_RENDER, 
+                country_code=self.SCRAPERAPI_COUNTRY_CODE, 
+                premium=self.SCRAPERAPI_PREMIUM)
+            
+            log.info("New url: {}".format(new_url))
+            return request.replace(url=new_url)
+        return

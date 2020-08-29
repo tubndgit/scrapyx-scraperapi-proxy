@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-import os
+import os, io
 try:
     from setuptools import setup, find_packages
 except ImportError:
@@ -9,11 +9,11 @@ except ImportError:
 # read the contents of your README file
 from os import path
 this_directory = path.abspath(path.dirname(__file__))
-with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+with io.open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(name='scrapyx-scraperapi-proxy',
-        version='0.1.2',        
+        version='0.1.3',        
         description='Scrapy scraperapi Proxy: scraperapi interfacing middleware for Scrapy',
         long_description=long_description,
         long_description_content_type='text/markdown',
